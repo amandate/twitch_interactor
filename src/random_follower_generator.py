@@ -7,6 +7,10 @@ from api.users_api import TwitchUsersAPI
 import json
 import random
 
+"""
+    This file contains a script to generate a random follower for my twitch user_id.
+"""
+
 class RandomFollowerGenerator:
     def __init__(self):
         self._parseTwitchJsonFile()
