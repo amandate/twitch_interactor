@@ -8,7 +8,7 @@ import json
 import random
 
 """
-    This file contains a script to generate a random follower for my twitch user_id.
+    Script to generate a random follower for my twitch user_id.
 """
 
 class RandomFollowerGenerator:
