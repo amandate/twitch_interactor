@@ -11,8 +11,15 @@ class RandomFollowerGenerator:
     def __init__(self):
         self._parseTwitchJsonFile()
         self.TwitchUserFollowersAPI = TwitchUsersAPI(self.client_id, self.access_token)
+
+        # Array of all current followers
         self.followers = []
 
+    '''
+        Reads and parses json file on personal machine to retrieve sensitive data
+        such as client_id, access_token, and personal account's user_id to call
+        Twitch User Followers API.
+    '''
     def _parseTwitchJsonFile(self):
         json_file = open(API_TOKEN_FILE_PATH)
         json_data = json.load(json_file)
@@ -21,6 +28,12 @@ class RandomFollowerGenerator:
         self.access_token = json_data[ACCESS_TOKEN_KEY]
         self.user_id = json_data[MY_USER_ID_KEY]
 
+
+    '''
+        Makes a call to Twitch User Followers API and retrieves all responses.
+        Reads through response to populate self.followers with display names (from_name) 
+        of self.user_id's followers.
+    '''
     def _populateCurrentFollowers(self):
         cursor = ''
         params = {AFTER_KEY: cursor, FIRST_KEY: 100}
@@ -32,9 +45,16 @@ class RandomFollowerGenerator:
             if CURSOR_KEY not in response[PAGINATION_KEY]:
                 return
 
+            # Sets cursor so we know where we want our next API call to start its next response  
             cursor = response[PAGINATION_KEY][CURSOR_KEY]
             params[AFTER_KEY] = cursor
 
+
+    '''
+        Grabs a random follower from self.followers, using the random library. Afterwards, 
+        we remove the follower from self.followers because we don't want duplicates if we 
+        make additional calls to getRandomFollower().
+    '''
     def getRandomFollower(self):
         if not self.followers:
             self._populateCurrentFollowers()
@@ -46,8 +66,7 @@ if __name__ == "__main__":
     rfg = RandomFollowerGenerator()
     while True:
         userResponse = True if input("Grab random follower? (y/n): ") == "y" else False
-        if userResponse:
-            print(rfg.getRandomFollower())
-        else:
+        if not userResponse:
             break
+        print(rfg.getRandomFollower())
         
