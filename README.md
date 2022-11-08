@@ -13,4 +13,4 @@ This project is my representation of interacting with Twitch's API.
 How to Run:
 1) Make sure you followed all Set Up steps above.
 2) Make sure you have `"my_user_id"` in your json file set to your twitch account's user_id.
-3) In terminal, enter the command `python3 random_follower_generator.py` and follow prompt.
+3) In terminal, enter the command `python3 src/random_follower_generator.py` and follow prompt.
