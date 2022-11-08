@@ -1,5 +1,5 @@
 """
-    This file contains constants for API endpoints.
+    Constants for API endpoints.
 """
 
 FOLLOWS_ENDPOINT = "/follows"

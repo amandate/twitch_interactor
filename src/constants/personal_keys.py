@@ -1,5 +1,5 @@
 """
-    This file contains constants for keys used in json files on my personal machine.
+    Constants for keys used in json files on my personal machine.
 """
 
 ACCESS_TOKEN_KEY = "access_token"

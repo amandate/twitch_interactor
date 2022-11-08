@@ -1,5 +1,5 @@
 """
-    This file contains general constants.
+    General constants.
 """
 
 API = "twitch"

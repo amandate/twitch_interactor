@@ -1,5 +1,5 @@
 """
-    This file contains constants for parameter keys used to make calls to the API.
+    Constants for parameter keys used to make calls to the API.
 """
 
 AFTER_KEY = "after"

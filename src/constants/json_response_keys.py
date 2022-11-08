@@ -1,5 +1,5 @@
 """
-    This file contains constants for keys used in API responses.
+    Constants for keys used in API responses.
 """
 
 CURSOR_KEY = "cursor"
